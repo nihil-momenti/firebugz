@@ -14,7 +14,8 @@
                 android:text="FogBugz URL:"
                 android:paddingRight="2dp" />
       <EditText android:id="@+id/url_edit"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textUri" />
     </TableRow>
     <TableRow>
       <TextView android:id="@+id/email_label"
@@ -23,7 +24,8 @@
                 android:text="Email:"
                 android:paddingRight="2dp" />
       <EditText android:id="@+id/email_edit"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress" />
     </TableRow>
     <TableRow>
       <TextView android:id="@+id/password_label"
@@ -32,11 +34,14 @@
                 android:text="Password:"
                 android:paddingRight="2dp" />
       <EditText android:id="@+id/password_edit"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:password="true"
+                android:inputType="textPassword" />
     </TableRow>
   </TableLayout>
   <Button android:id="@+id/submit_button"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:text="Submit" />
+          android:text="Submit"
+          android:onClick="doSubmit" />
 </LinearLayout>

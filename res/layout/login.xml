@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical" >
+  <TableLayout android:id="@+id/table"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:stretchColumns="1" >
+    <TableRow>
+      <TextView android:id="@+id/url_label"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="FogBugz URL:"
+                android:paddingRight="2dp" />
+      <EditText android:id="@+id/url_edit"
+                android:layout_height="wrap_content" />
+    </TableRow>
+    <TableRow>
+      <TextView android:id="@+id/email_label"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Email:"
+                android:paddingRight="2dp" />
+      <EditText android:id="@+id/email_edit"
+                android:layout_height="wrap_content" />
+    </TableRow>
+    <TableRow>
+      <TextView android:id="@+id/password_label"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Password:"
+                android:paddingRight="2dp" />
+      <EditText android:id="@+id/password_edit"
+                android:layout_height="wrap_content" />
+    </TableRow>
+  </TableLayout>
+  <Button android:id="@+id/submit_button"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="Submit" />
+</LinearLayout>

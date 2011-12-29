@@ -4,12 +4,12 @@ import android.content.Intent
 import android.view.View
 
 class MainActivity < Activity
-  def onCreate(state:Bundle)
+  def onCreate state:Bundle
     super state
     setContentView R.layout.main
   end
 
-  def doLogin(view:View)
+  def doLogin view:View
     startActivity Intent.new(self, LoginActivity.class)
   end
 end

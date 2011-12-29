@@ -6,7 +6,7 @@ import android.app.Dialog
 import android.app.ProgressDialog
 
 class LoginActivity < Activity
-  def onCreate(state:Bundle)
+  def onCreate state:Bundle
     super state
     setContentView R.layout.login
 
@@ -17,27 +17,32 @@ class LoginActivity < Activity
     @submit_button = findViewById(R.id.submit_button)
   end
 
-  def doSubmit(view:View):void
+  def doSubmit view:View : void
     validate_fields && do_login
   end
 
   def validate_fields
     return ! (
       @url_edit.getText.toString.trim.isEmpty ||
-      @url_edit.getText.toString.trim.isEmpty ||
-      @url_edit.getText.toString.trim.isEmpty
+      @email_edit.getText.toString.trim.isEmpty ||
+      @password_edit.getText.toString.trim.isEmpty
     )
   end
 
-  def do_login
+  def do_login : void
     dialog = ProgressDialog.show(self, "Logging in", "Logging in, please wait...", true);
-    submit_button = @submit_button
     this = self
     Thread.new do
-      api_token = "blahblah"
-      Thread.sleep 2000
+      api_token = this.get_token
       this.finish_login dialog if api_token
     end.start
+  end
+
+  def get_token
+    fb = FogBugz.new(:url => @url_edit.getText.toString.trim,
+                     :email => @email_edit.getText.toString.trim,
+                     :password => @password_edit.getText.toString.trim)
+    fb.authenticate
   end
 
   def finish_login dialog:Dialog

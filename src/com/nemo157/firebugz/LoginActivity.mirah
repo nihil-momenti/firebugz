@@ -14,6 +14,11 @@ class LoginActivity < Activity
     @email_edit = EditText(findViewById(R.id.email_edit))
     @password_edit = EditText(findViewById(R.id.password_edit))
 
+    @fb = FogBugz.new self
+
+    @url_edit.setText @fb.uri.toString
+    @email_edit.setText @fb.email
+
     @submit_button = findViewById(R.id.submit_button)
   end
 
@@ -39,10 +44,10 @@ class LoginActivity < Activity
   end
 
   def get_token
-    fb = FogBugz.new(:url => @url_edit.getText.toString.trim,
-                     :email => @email_edit.getText.toString.trim,
-                     :password => @password_edit.getText.toString.trim)
-    fb.authenticate
+    @fb.authenticate(:uri => @url_edit.getText.toString.trim,
+                    :email => @email_edit.getText.toString.trim,
+                    :password => @password_edit.getText.toString.trim)
+    @fb.save_config
   end
 
   def finish_login dialog:Dialog

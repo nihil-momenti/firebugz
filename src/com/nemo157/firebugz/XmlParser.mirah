@@ -5,10 +5,9 @@ import java.util.Map
 
 class XmlParser
   def self.parse xml_stream:InputStream : Map
-    xmlReader = SAXParserFactory.newInstance.newSAXParser.getXMLReader
+    saxParser = SAXParserFactory.newInstance.newSAXParser
     handler = XMLToHashHandler.new
-    xmlReader.setContentHandler handler
-    xmlReader.parse InputSource.new xml_stream
+    saxParser.parse InputSource.new(xml_stream), handler
     handler.result
   end
 end

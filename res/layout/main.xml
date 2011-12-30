@@ -6,10 +6,15 @@
   <TextView android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Hello World, FireBugz" />
-  <Button android:id="@+id/temp_button"
+  <Button android:id="@+id/login"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
-          android:text="Lol, press me"
+          android:text="Login"
           android:onClick="doLogin" />
+  <Button android:id="@+id/logout"
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:text="Logout"
+          android:onClick="doLogout" />
 </LinearLayout>
 
